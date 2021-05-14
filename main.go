@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"unit-convert/length"
 	"unit-convert/temp"
 	"unit-convert/weight"
 )
@@ -40,6 +41,8 @@ func convert(x float64) string {
 	f := temp.Fahrenheit(x)
 	k := weight.Kilogram(x)
 	p := weight.Pound(x)
-	return fmt.Sprintf("Temperature: %s = %s, %s = %s\nWeight: %s = %s, %s = %s", c, temp.CToF(c), f, temp.FToC(f), k, weight.KToP(k), p, weight.PToK(p))
+	m := length.Meter(x)
+	ft := length.Foot(x)
+	return fmt.Sprintf("Temperature: %s = %s, %s = %s\nWeight: %s = %s, %s = %s\nLength: %s = %s, %s = %s", c, temp.CToF(c), f, temp.FToC(f), k, weight.KToP(k), p, weight.PToK(p), m, length.MToF(m), ft, length.FToM(ft))
 
 }
